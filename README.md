@@ -15,13 +15,8 @@ Why Choose Daily.News?
 ##Personalized Experience: Tailor your news feed to match your interests and preferences, with customizable options that put you in control of your news consumption.
 ##Timely Updates: Whether you're checking the morning headlines or staying informed throughout the day, our app delivers timely updates to keep you informed and up-to-date.
 
-![Screenshot_20240503-131332](https://github.com/AshuSriwastav07/daily.News/assets/68800012/e2f92913-c69f-4d66-8a50-c9b204c83598)
-![Screenshot_20240503-131338](https://github.com/AshuSriwastav07/daily.News/assets/68800012/d56b863d-c56b-47b7-a24c-9fcc230fd278)
-![Screenshot_20240503-131352](https://github.com/AshuSriwastav07/daily.News/assets/68800012/0efe93e8-3e5e-43b1-90d9-6d9e653dc898)
-![Screenshot_20240503-131356](https://github.com/AshuSriwastav07/daily.News/assets/68800012/a6986844-a1a4-46fb-beff-a01cc109aa8c)
-![Screenshot_20240503-131402](https://github.com/AshuSriwastav07/daily.News/assets/68800012/1da7ea5b-230d-40be-be1f-f4ded7df1b85)
-![Screenshot_20240503-131408](https://github.com/AshuSriwastav07/daily.News/assets/68800012/cc466643-0d31-4311-b43e-84642b0fad42)
-
+![Screenshot_20240503-131332](https://github.com/AshuSriwastav07/daily.News/assets/68800012/156b47d1-3483-47df-a847-12b4863edb9e) ![Screenshot_20240503-131338](https://github.com/AshuSriwastav07/daily.News/assets/68800012/817c1123-9023-422e-9720-d8a425bcae66) ![Screenshot_![Screenshot_20240503-131356](https://github.com/AshuSriwastav07/daily.News/assets/68800012/ab7d7c2a-6bf2-4f4c-941f-392ec88ace6e) 20240503-131352](https://github.com/AshuSriwastav07/daily.News/assets/68800012/5298ee4a-641c-4c9c-9ad0-baf3eb436ddc) ![Screenshot_20240503-131402](https://github.com/AshuSriwastav07/daily.News/assets/68800012/b0f9aced-e7ef-4b10-ba6a-6d57902c99d9)
+![Screenshot_20240503-131408](https://github.com/AshuSriwastav07/daily.News/assets/68800012/a61e9fba-fe48-4133-a3a7-362ee696ed1c)
 
 https://github.com/AshuSriwastav07/daily.News/assets/68800012/34668384-c171-4b83-87af-41b88573ef78
 
