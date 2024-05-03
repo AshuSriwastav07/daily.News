@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">daily.News</string>
+    <string name="products_list">Products List</string>
+    <string name="view_products">View Products</string>
+    <string name="headlines">Headlines</string>
+    <string name="news_details">News Details</string>
+    <string name="finance">Finance</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="crypto">Crypto</string>
+    <string name="economy">Economy</string>
+    <string name="technology">Technology</string>
+    <string name="coding_news">Coding News</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="sports">Sports</string>
+    <string name="usa_market">USA and Indian Market and Investments</string>
+    <string name="new_startups">New Startups</string>
+    <string name="daily_news">daily.News</string>
+    <string name="select_tags_for_news_updates">Select Tags for News Updates</string>
+    <string name="select_any_3_tags_only">(Select Any 3 Tags Only)</string>
+    <string name="newstab">News Tabs\n</string>
+</resources>
