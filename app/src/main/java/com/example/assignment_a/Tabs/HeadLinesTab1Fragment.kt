@@ -1,7 +1,6 @@
 package com.example.assignment_a.Tabs
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,12 +19,16 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class HeadLinesTab1Fragment : Fragment(), MyNewsHeadlinesAdapter.RecyclerViewEvent {
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_head_lines_tab1, container, false)
+
+
+        //imageViews
 
         val recyclerView=view.findViewById<RecyclerView>(R.id.HeadLinesRecyclerView)
         val activity = requireActivity()
@@ -40,7 +43,6 @@ class HeadLinesTab1Fragment : Fragment(), MyNewsHeadlinesAdapter.RecyclerViewEve
 
         val retrofitData=retrofit.getHeadlines("in",API_Key)
 
-
         var titles:Array<String> = arrayOf()
         var images:Array<String> = arrayOf()
         var news:Array<String> = arrayOf()
@@ -51,35 +53,43 @@ class HeadLinesTab1Fragment : Fragment(), MyNewsHeadlinesAdapter.RecyclerViewEve
         retrofitData.enqueue(object : Callback<newsDataClass> {
 
             override fun onResponse(p0: Call<newsDataClass>, response: Response<newsDataClass>) {
+                if (isAdded) {
+                    val newsData: newsDataClass? = response.body()
 
-                val newsData: newsDataClass? = response.body()
+                    if (newsData != null) {
+                        for (data in newsData.articles) {
 
-                if (newsData != null) {
-                    for(data in newsData.articles){
+                            if (data.title != null && data.urlToImage != null && data.description != null && data.publishedAt != null) {
+                                titles += data.title
+                                images += data.urlToImage
+                                news += data.description
+                                dateTimes += data.publishedAt
+                                writtenBy += data.source.name
+                                completeArticleUrl += data.url
 
-                        if(data.title != null && data.urlToImage != null && data.description != null && data.publishedAt != null) {
-                            titles += data.title
-                            images += data.urlToImage
-                            news += data.description
-                            dateTimes += data.publishedAt
-                            writtenBy += data.source.name
-                            completeArticleUrl += data.url
-                            Log.d("LINKURL",data.url)
 
+                            }
                         }
                     }
 
+                    // Set the layout manager
+                    recyclerView.layoutManager = LinearLayoutManager(context)
+
+                    // Initialize the adapter
+                    val adapter = MyNewsHeadlinesAdapter(
+                        activity,
+                        titles,
+                        dateTimes,
+                        images,
+                        news,
+                        writtenBy,
+                        completeArticleUrl
+                    )
+                    // Set the adapter
+                    recyclerView.adapter = adapter
+
+
                 }
-
-
-                // Set the layout manager
-                recyclerView.layoutManager = LinearLayoutManager(context)
-
-                // Initialize the adapter
-                val adapter = MyNewsHeadlinesAdapter(activity,titles,dateTimes,images,news,writtenBy,completeArticleUrl)
-                // Set the adapter
-                recyclerView.adapter = adapter
-
             }
 
             override fun onFailure(p0: Call<newsDataClass>, response: Throwable) {
@@ -96,5 +106,9 @@ class HeadLinesTab1Fragment : Fragment(), MyNewsHeadlinesAdapter.RecyclerViewEve
     override fun onItemClick(url: Array<String>, position: Int) {
 
       }
+
+
+
+
 }
 

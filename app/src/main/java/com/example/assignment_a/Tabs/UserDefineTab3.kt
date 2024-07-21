@@ -65,40 +65,48 @@ class UserDefineTab3 : Fragment() {
 
         retrofitData.enqueue(object : Callback<newsDataClass> {
             override fun onResponse(p0: Call<newsDataClass>, response: Response<newsDataClass>) {
+                if (isAdded) {
+                    val newsData: newsDataClass? = response.body()
 
-                val newsData: newsDataClass?=response.body()
+                    var titles: Array<String> = arrayOf()
+                    var images: Array<String> = arrayOf()
+                    var news: Array<String> = arrayOf()
+                    var dateTimes: Array<String> = arrayOf()
+                    var writtenBy: Array<String> = arrayOf()
+                    var completeArticleUrl: Array<String> = arrayOf()
 
-                var titles:Array<String> = arrayOf()
-                var images:Array<String> = arrayOf()
-                var news:Array<String> = arrayOf()
-                var dateTimes:Array<String> = arrayOf()
-                var writtenBy:Array<String> = arrayOf()
-                var completeArticleUrl:Array<String> = arrayOf()
+                    if (newsData != null) {
+                        for (data in newsData.articles) {
+                            if (data.title != null && data.urlToImage != null && data.description != null && data.publishedAt != null) {
+                                titles += data.title
+                                images += data.urlToImage
+                                news += data.description
+                                dateTimes += data.publishedAt
+                                writtenBy += data.source.name
+                                completeArticleUrl += data.url
+                            }
 
-                if(newsData!=null){
-                    for (data in newsData.articles){
-                        if(data.title != null && data.urlToImage != null && data.description != null && data.publishedAt != null) {
-                            titles += data.title
-                            images += data.urlToImage
-                            news += data.description
-                            dateTimes += data.publishedAt
-                            writtenBy += data.source.name
-                            completeArticleUrl += data.url
                         }
-
                     }
+
+                    val recyclerView = view.findViewById<RecyclerView>(R.id.UserDefineTab3)
+                    // Set the layout manager
+                    recyclerView.layoutManager = LinearLayoutManager(context)
+
+                    // Initialize the adapter
+                    val adapter = MyNewsHeadlinesAdapter(
+                        activity,
+                        titles,
+                        dateTimes,
+                        images,
+                        news,
+                        writtenBy,
+                        completeArticleUrl
+                    )
+                    // Set the adapter
+                    recyclerView.adapter = adapter
                 }
-
-                val recyclerView=view.findViewById<RecyclerView>(R.id.UserDefineTab3)
-                // Set the layout manager
-                recyclerView.layoutManager = LinearLayoutManager(context)
-
-                // Initialize the adapter
-                val adapter = MyNewsHeadlinesAdapter(activity,titles,dateTimes,images,news,writtenBy,completeArticleUrl)
-                // Set the adapter
-                recyclerView.adapter = adapter
             }
-
             override fun onFailure(p0: Call<newsDataClass>, response: Throwable) {
 
             }

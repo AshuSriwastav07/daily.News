@@ -3,6 +3,8 @@ package com.example.assignment_a.Activities
 import android.content.Intent
 import android.database.Cursor
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.ImageButton
 import android.widget.Toast
@@ -20,17 +22,9 @@ import com.google.android.material.tabs.TabLayout
 
 class HomePageActivity : AppCompatActivity() {
 
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
-        super.onBackPressed()
-        // Clear the back stack
-        val intent = Intent(this, HomePageActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        startActivity(intent)
-
-        // Close the app
-        finish()
-    }
+    private var backPressedOnce = false
+    private val handler = Handler(Looper.getMainLooper())
+    private val backPressRunnable = Runnable { backPressedOnce = false }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,8 +96,22 @@ class HomePageActivity : AppCompatActivity() {
         viewPager.adapter=adapter
         tabLayout.setupWithViewPager(viewPager)
 
+    }
 
+    override fun onBackPressed() {
+        if (backPressedOnce) {
+            finishAffinity() // Close the app completely
+            return
+        }
 
+        this.backPressedOnce = true
+        Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show()
 
+        handler.postDelayed(backPressRunnable, 2000) // 2 seconds delay
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        handler.removeCallbacks(backPressRunnable)
     }
 }

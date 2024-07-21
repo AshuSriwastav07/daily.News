@@ -19,4 +19,5 @@
     <string name="select_tags_for_news_updates">Select Tags for News Updates</string>
     <string name="select_any_3_tags_only">(Select Any 3 Tags Only)</string>
     <string name="newstab">News Tabs\n</string>
+    <string name="db">database</string>
 </resources>

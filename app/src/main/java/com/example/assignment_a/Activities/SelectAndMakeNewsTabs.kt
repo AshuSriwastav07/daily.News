@@ -130,8 +130,6 @@ class SelectAndMakeNewsTabs : AppCompatActivity() {
                 "Crypto", "Tech", "Stocks", "Coding", "Entertainment",
                 "New Startups", "Sports" )
 
-
-
             Handler(Looper.getMainLooper()).postDelayed({
 
             for (i in newsCheckboxes.indices) {

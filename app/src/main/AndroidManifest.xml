@@ -15,6 +15,9 @@
         android:theme="@style/Theme.AssignmentA"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.StoryViewerPage"
+            android:exported="false" />
+        <activity
             android:name=".Activities.FlashScreen"
             android:exported="true">
             <intent-filter>
@@ -23,23 +26,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Activities.HomePageActivity"
-            android:exported="false">
-
-        </activity>
-
+            android:exported="false"></activity>
         <activity
             android:name=".Activities.OpenNewsArticleWeb"
             android:exported="false" />
-
         <activity
             android:name=".Activities.SelectAndMakeNewsTabs"
-            android:exported="false">
-
-        </activity>
-
+            android:exported="false"></activity>
     </application>
 
 </manifest>

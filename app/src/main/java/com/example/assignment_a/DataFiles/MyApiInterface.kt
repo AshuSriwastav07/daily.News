@@ -14,6 +14,7 @@ interface MyApiInterface {
     @GET("everything")
     fun getFinanceNews(
         @Query("q") query: String,  // Query keyword
+        @Query("sortBy") sortBy:String,
         @Query("apiKey") apiKey: String  // Your API key
     ): Call<newsDataClass>
 
@@ -29,7 +30,12 @@ interface MyApiInterface {
         @Query("apiKey") apiKey: String  // Your API key
     ): Call<newsDataClass>
 
-
+    @GET("everything")
+    fun getStoryHighlight(
+        @Query("q") query: String,  // Query keyword
+        @Query("sortBy") sortBy:String,
+        @Query("apiKey") apiKey: String  // Your API key
+    ):Call<newsDataClass>
     data class NewsResponse(val status: String, val totalResults: Int, val articles: List<Article>)
 
 }
