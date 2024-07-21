@@ -1,3 +1,5 @@
+##daily.News App
+
 **Introducing Our Daily.News App: Stay Informed, Stay Ahead**
 
 Welcome to our Daily.News app, your go-to destination for staying updated with the latest news, tailored to your interests and preferences. With a sleek and intuitive interface, our app offers a comprehensive coverage of headlines, finance, and live updates, empowering you to make informed decisions in today's fast-paced world.
